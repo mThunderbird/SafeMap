@@ -1,0 +1,15 @@
+Real-time, user-to-user danger reports in Sofia.
+Web app that provides the following:
+
+Users can submit reports of suspicious events
+Each report consists of the following
+Category: Harassment, Sexual Harassment, Mugging, Drunk Crowd, Suspicious Activity, Other
+Time & Date of occurrence: By default now, else insertable
+Location of occurrence: By default current phone location if permitted, else can be pin pointed on map
+Optional description: Up to 300 characters to shortly explain what exactly happened
+
+Users can see a hot map pinpointing red dots that represent the most recent reports (last 24hrs)
+
+Users can see a data regressed map highlighting areas like a heat map where most danger reports occurred.
+
+The goal of the application is to raise awareness and provide information about what happens where and how often.
