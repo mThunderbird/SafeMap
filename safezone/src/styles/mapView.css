@@ -1,0 +1,23 @@
+/* Customize the cluster circle */
+.marker-cluster {
+  background-color: rgba(255, 0, 0, 0.6); /* red clusters */
+  color: white;
+  border-radius: 50%;
+}
+
+/* Customize the inner number */
+.marker-cluster div {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Customize clusters of different sizes */
+.marker-cluster-small {
+  background-color: rgba(186, 232, 117, 0.6);
+}
+.marker-cluster-medium {
+  background-color: rgba(255, 193, 7, 0.6);
+}
+.marker-cluster-large {
+  background-color: rgba(220, 53, 69, 0.6);
+}

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { db } from "../firebase";
 import { collection, addDoc, Timestamp, GeoPoint } from "firebase/firestore";
 
+import "../App.css";
+
 export default function ReportForm() {
 
 
@@ -21,7 +23,7 @@ export default function ReportForm() {
             const docRef = await addDoc(collection(db, "reports"), {
                 ...formData,
                 timestamp: Timestamp.now(),
-                location: new GeoPoint(0, 0) // Placeholder for location
+                location: new GeoPoint(42.6977, 23.3219) // Placeholder for location
             });
             console.log("Report submitted with ID:", docRef.id);
             alert("Your report has been submitted successfully.");
@@ -36,12 +38,13 @@ export default function ReportForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="report-form" onSubmit={handleSubmit}>
             <select 
             name="category"
             onChange={(e) => setFormData({ ...formData, category: e.target.value })}
             required
             >
+                <option value="" disabled selected>Select your option</option>
                 <option value="Harassment">Harassment</option>
                 <option value="Sexual harassment">Sexual Harassment</option>
                 <option value="Mugging">Mugging</option>
