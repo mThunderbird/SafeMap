@@ -2,10 +2,9 @@ import { useState } from "react";
 import { db } from "../firebase";
 import { collection, addDoc, Timestamp, GeoPoint } from "firebase/firestore";
 
-import "../App.css";
+import "../styles/mapView.css";
 
-export default function ReportForm() {
-
+export default function ReportForm({selectedLocation, setSelectedLocation}) {
 
     // State to hold form data
     const [formData, setFormData] = useState({
@@ -23,10 +22,11 @@ export default function ReportForm() {
             const docRef = await addDoc(collection(db, "reports"), {
                 ...formData,
                 timestamp: Timestamp.now(),
-                location: new GeoPoint(42.6977, 23.3219) // Placeholder for location
+                location: new GeoPoint(selectedLocation.lat, selectedLocation.lng)
             });
             console.log("Report submitted with ID:", docRef.id);
-            alert("Your report has been submitted successfully.");
+
+            setSelectedLocation(null); // Clear the selected location after submission
         }
         catch (error) 
         {

@@ -1,17 +1,22 @@
 import { useState } from 'react'
 import './App.css'
-import ReportForm from './components/ReportForm'
 import MapView from './components/MapView'
+import NavBar from './components/NavBar'
 
+import "./styles/app.css"
 
-function App() {
+import { Routes, Route } from 'react-router-dom'
+
+export default function App() {
 
   return (
-      <div className="main-container">
-        <MapView />
-        <ReportForm />
-      </div>
+    <div className="app">
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<MapView />} />
+        <Route path="/forum" element={<div>Forum</div>} />
+        <Route path="/about" element={<div>About</div>} />
+      </Routes>
+    </div>
   )
 }
-
-export default App
