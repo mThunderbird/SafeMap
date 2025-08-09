@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './App.css'
 import MapView from './components/MapView'
 import NavBar from './components/NavBar'
 
