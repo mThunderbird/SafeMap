@@ -15,12 +15,15 @@ export default function UserLocation() {
             position: 'topright',
             flyTo: true,
             keepCurrentZoomLevel: true,
-            drawCircle: true,
+            drawCircle: false,
             drawMarker: true,
-            showCompass: true
+            showCompass: true,
+            cacheLocation: true,
+            clickBehavior: {inView: 'setView', outOfView: 'setView', inViewNotFollowing: 'setView'}
         });
 
         locateControl.addTo(map);
+        locateControl.start();
 
         return () => {
             locateControl.remove();
