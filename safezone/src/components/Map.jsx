@@ -1,16 +1,27 @@
 import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import 'leaflet/dist/leaflet.css';
-import { useState, useEffect } from 'react';
+import { useRef } from 'react';
 import useReports from '../util/useReports';
 import '../styles/mapView.css';
 import LocationMarker from '../util/LocationMarker'
+import UserLocation from '../util/UserLocation';
+import L from 'leaflet';
 
 export default function Map({ selectedLocation, setSelectedLocation }) {
 
     const position = [42.6977, 23.3219]; // Sofia, Bulgaria
 
     const reports = useReports();
+
+    const redIcon = L.icon({
+                        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+                        iconSize: [25, 41],
+                        iconAnchor: [12, 41],
+                        popupAnchor: [1, -34],
+                        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+                        shadowSize: [41, 41]
+                    })
 
     return (
         <MapContainer center={position} zoom={13} scrollWheelZoom={false}
@@ -19,16 +30,19 @@ export default function Map({ selectedLocation, setSelectedLocation }) {
                 url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
                 attribution='&copy; <a href="https://carto.com/">CARTO</a> | © OpenStreetMap contributors'>
             </TileLayer>
+
+            <UserLocation/>
             <LocationMarker onSelect={(location) => setSelectedLocation(location)} />
 
             {selectedLocation && (
                 <Marker id="selectedLocationMarker" position={selectedLocation}>
                     <Popup>
-                        <span id="selectedLocationMarkerSpan" style={{ cursor: "pointer", color: "darkred" }} onClick={(e) => {
+                        <span id="selectedLocationMarkerSpan" style={{ cursor: "pointer", color: "#2c84cb" }} 
+                        onClick={(e) => {
                             setSelectedLocation(null);
                             e.stopPropagation();
                             console.log("Marker removed");
-                        }}>Remove marker</span>
+                        }}>Click here to remove</span>
                     </Popup>
                 </Marker>
             )}
@@ -38,6 +52,7 @@ export default function Map({ selectedLocation, setSelectedLocation }) {
                     <Marker
                         key={report.id}
                         position={[report.location.latitude, report.location.longitude]}
+                        icon={redIcon}
                     >
                     <Popup>
                         <strong>{report.category}</strong><br />
