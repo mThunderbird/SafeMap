@@ -6,6 +6,7 @@ import useReports from '../util/useReports';
 import '../styles/mapView.css';
 import LocationMarker from '../util/LocationMarker'
 import UserLocation from '../util/UserLocation';
+import MapSearch from '../util/MapSearch';
 import L from 'leaflet';
 
 export default function Map({ selectedLocation, setSelectedLocation }) {
@@ -24,13 +25,14 @@ export default function Map({ selectedLocation, setSelectedLocation }) {
                     })
 
     return (
-        <MapContainer center={position} zoom={13} scrollWheelZoom={false}
+        <MapContainer center={position} zoom={13} scrollWheelZoom={true} touchZoom={true} tap={false}
             style={{ height: "50vh", width: "100%" }}>
             <TileLayer
                 url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
                 attribution='&copy; <a href="https://carto.com/">CARTO</a> | © OpenStreetMap contributors'>
             </TileLayer>
 
+            <MapSearch setSelectedLocation={setSelectedLocation} />
             <UserLocation/>
             <LocationMarker onSelect={(location) => setSelectedLocation(location)} />
 

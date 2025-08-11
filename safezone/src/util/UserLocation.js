@@ -10,11 +10,11 @@ export default function UserLocation() {
 
     useEffect(() => {
 
-        console.log(L);
         const locateControl = new LocateControl({
-            position: 'topright',
+            position: 'bottomleft',
             flyTo: true,
-            keepCurrentZoomLevel: true,
+            keepCurrentZoomLevel: false,
+            initialZoomLevel: 16,
             drawCircle: false,
             drawMarker: true,
             showCompass: true,
