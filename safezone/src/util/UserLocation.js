@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useMap } from "react-leaflet";
-import L from "leaflet";
 import { LocateControl } from "leaflet.locatecontrol";
+
 import "leaflet.locatecontrol/dist/L.Control.Locate.css";
 
 export default function UserLocation() {
@@ -12,18 +12,16 @@ export default function UserLocation() {
 
         const locateControl = new LocateControl({
             position: 'bottomleft',
-            flyTo: true,
-            keepCurrentZoomLevel: false,
-            initialZoomLevel: 16,
             drawCircle: false,
-            drawMarker: true,
-            showCompass: true,
             cacheLocation: true,
-            clickBehavior: {inView: 'setView', outOfView: 'setView', inViewNotFollowing: 'setView'}
+            clickBehavior: {
+                inView: 'stop',
+                outOfView: 'setView',
+                inViewNotFollowing: 'setView'
+            }
         });
 
         locateControl.addTo(map);
-        locateControl.start();
 
         return () => {
             locateControl.remove();
