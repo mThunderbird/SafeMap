@@ -12,8 +12,10 @@ export default function UserLocation() {
 
         const locateControl = new LocateControl({
             position: 'bottomleft',
-            drawCircle: false,
             cacheLocation: true,
+            locateOptions: {
+                enableHighAccuracy: true
+            },
             clickBehavior: {
                 inView: 'stop',
                 outOfView: 'setView',

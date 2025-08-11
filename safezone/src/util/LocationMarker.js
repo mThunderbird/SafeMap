@@ -8,5 +8,5 @@ export default function LocationMarker({ onSelect }) {
         },
     });
 
-    return null; // This component does not render anything itself
+    return null;
 }

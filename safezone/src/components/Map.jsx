@@ -1,7 +1,6 @@
 import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import 'leaflet/dist/leaflet.css';
-import { useRef } from 'react';
 import useReports from '../util/useReports';
 import '../styles/mapView.css';
 import LocationMarker from '../util/LocationMarker'
@@ -49,7 +48,7 @@ export default function Map({ selectedLocation, setSelectedLocation }) {
                 </Marker>
             )}
 
-            <MarkerClusterGroup>
+            {/* <MarkerClusterGroup> */}
                 {reports.map((report) => (
                     <Marker
                         key={report.id}
@@ -64,7 +63,7 @@ export default function Map({ selectedLocation, setSelectedLocation }) {
                     </Marker>
                     ))
                 }
-            </MarkerClusterGroup>
+            {/* </MarkerClusterGroup> */}
         </MapContainer>
     )
 }
