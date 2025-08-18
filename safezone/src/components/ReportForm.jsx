@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { db } from "../firebase";
 import { collection, addDoc, Timestamp, GeoPoint } from "firebase/firestore";
 
-import "../styles/mapView.css";
+import "../styles/reportForm.css";
 
-export default function ReportForm({selectedLocation, setSelectedLocation}) {
+export default function ReportForm({mapViewState, setMapViewState}) {
 
     // State to hold form data
     const [formData, setFormData] = useState({
@@ -12,21 +12,38 @@ export default function ReportForm({selectedLocation, setSelectedLocation}) {
         description: ""
     });
 
+    const [buttonForMapText, setButtonForMapText] = useState("Select on map");
+
+    const [locationSelectionState, setLocationSelectionState] = useState("map");
+
+    useEffect(() => {
+        
+        if(mapViewState.isReporting)
+        {
+            if(mapViewState.currentLocation)
+                setLocationSelectionState("current");
+            else
+                setLocationSelectionState("map");
+        }
+
+    }, [mapViewState.isReporting]);
+
     async function handleSubmit(e) {
         e.preventDefault();
         console.log("Form submitted with data:", formData);
 
+        setMapViewState({ ...mapViewState, isReporting: false }); // Close the report form after submission
 
         try
         {
             const docRef = await addDoc(collection(db, "reports"), {
                 ...formData,
                 timestamp: Timestamp.now(),
-                location: new GeoPoint(selectedLocation.lat, selectedLocation.lng)
+                location: new GeoPoint(mapViewState.selectedLocation.lat, mapViewState.selectedLocation.lng)
             });
             console.log("Report submitted with ID:", docRef.id);
 
-            setSelectedLocation(null); // Clear the selected location after submission
+            setMapViewState({ ...mapViewState, selectedLocation: null }); // Clear the selected location after submission
         }
         catch (error) 
         {
@@ -56,12 +73,30 @@ export default function ReportForm({selectedLocation, setSelectedLocation}) {
                 name="description"
                 onChange={(e) => { setFormData({...formData, description: e.target.value})}}
                 placeholder="Optional description of the incident"
-            />
-            <button 
-                type="submit"
-                >
-                    Submit Report
+            />            
+            <div className="location-selection">
+                <div style={{ background: locationSelectionState === "current" ? "#67b1ff86" : "lightgray" }} 
+                onClick={() => {
+                    if(mapViewState.currentLocation)
+                    {
+                        setLocationSelectionState("current")
+                        setButtonForMapText("Select on map")
+                        setMapViewState({ ...mapViewState, isSelectingOnMap: false })
+                    }
+                    else
+                        alert("Current location is not available. Try adjusting permissions and use the location button on the bottom left!");
+                }}>Use current location</div>
+                <div style={{ background: locationSelectionState === "map" ? "#67b1ff86" : "lightgray" }} 
+                onClick={() => {
+                    setLocationSelectionState("map")
+                    setButtonForMapText("Click on the map to select a location")
+                    setMapViewState({ ...mapViewState, isSelectingOnMap: true })
+                }}>{buttonForMapText}</div>
+            </div>
+            <button type="submit">
+                Submit Report
             </button>
+
         </form>
         
     )

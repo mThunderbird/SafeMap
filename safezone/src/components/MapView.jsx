@@ -1,16 +1,32 @@
 import Map from "./Map";
 import ReportForm from "./ReportForm";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function MapView() {
 
-    const [selectedLocation, setSelectedLocation] = useState(null);
+
+    const [mapViewState, setMapViewState] = useState({
+        currentLocation: null,
+        selectedLocation: null,
+        isReporting: false,
+        isSelectingOnMap: false
+    });
 
     return (
         <div className="main-container">
-            <Map selectedLocation={selectedLocation} setSelectedLocation={setSelectedLocation} />
-            <ReportForm selectedLocation={selectedLocation} setSelectedLocation={setSelectedLocation} />
+            <Map mapViewState={mapViewState} setMapViewState={setMapViewState}/>
+
+            { !mapViewState.isReporting && 
+            <button className="report-button" 
+                onClick={() => setMapViewState({ ...mapViewState, isReporting: true })}>
+                Make a report
+            </button>
+            }
+
+            {mapViewState.isReporting && 
+            <ReportForm mapViewState={mapViewState} setMapViewState={setMapViewState} />
+            }
         </div>
     );
 }

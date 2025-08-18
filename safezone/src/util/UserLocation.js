@@ -4,7 +4,7 @@ import { LocateControl } from "leaflet.locatecontrol";
 
 import "leaflet.locatecontrol/dist/L.Control.Locate.css";
 
-export default function UserLocation() {
+export default function UserLocation({ mapViewState, setMapViewState }) {
 
     const map = useMap();
 
@@ -13,6 +13,7 @@ export default function UserLocation() {
         const locateControl = new LocateControl({
             position: 'bottomleft',
             cacheLocation: true,
+            initialZoomLevel: 13,
             locateOptions: {
                 enableHighAccuracy: true
             },
@@ -24,6 +25,12 @@ export default function UserLocation() {
         });
 
         locateControl.addTo(map);
+
+        map.on('locationfound', (e) => {
+            setMapViewState({ ...mapViewState, currentLocation: e.latlng });
+        });
+
+        locateControl.start();
 
         return () => {
             locateControl.remove();

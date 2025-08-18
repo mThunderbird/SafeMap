@@ -8,7 +8,7 @@ import UserLocation from '../util/UserLocation';
 import MapSearch from '../util/MapSearch';
 import L from 'leaflet';
 
-export default function Map({ selectedLocation, setSelectedLocation }) {
+export default function Map({ mapViewState, setMapViewState }) {
 
     const position = [42.6977, 23.3219]; // Sofia, Bulgaria
 
@@ -31,16 +31,19 @@ export default function Map({ selectedLocation, setSelectedLocation }) {
                 attribution='&copy; <a href="https://carto.com/">CARTO</a> | © OpenStreetMap contributors'>
             </TileLayer>
 
-            <MapSearch setSelectedLocation={setSelectedLocation} />
-            <UserLocation/>
-            <LocationMarker onSelect={(location) => setSelectedLocation(location)} />
+            <MapSearch setSelectedLocation={mapViewState.setSelectedLocation} />
+            <UserLocation mapViewState={mapViewState} setMapViewState={setMapViewState} />
+            <LocationMarker onSelect={(location) => {
+                if(mapViewState.isSelectingOnMap)
+                    setMapViewState({ ...mapViewState, selectedLocation: location })
+            }} />
 
-            {selectedLocation && (
-                <Marker id="selectedLocationMarker" position={selectedLocation}>
+            {mapViewState.selectedLocation && (
+                <Marker id="selectedLocationMarker" position={mapViewState.selectedLocation}>
                     <Popup>
                         <span id="selectedLocationMarkerSpan" style={{ cursor: "pointer", color: "#2c84cb" }} 
                         onClick={(e) => {
-                            setSelectedLocation(null);
+                            setMapViewState({ ...mapViewState, selectedLocation: null });
                             e.stopPropagation();
                             console.log("Marker removed");
                         }}>Click here to remove</span>
