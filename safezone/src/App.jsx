@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import MapView from './components/MapView'
+import ForumView from './components/ForumView'
+import AboutView from './components/AboutView'
 import NavBar from './components/NavBar'
 
 import "./styles/app.css"
@@ -13,8 +15,8 @@ export default function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<MapView />} />
-        <Route path="/forum" element={<div>Forum</div>} />
-        <Route path="/about" element={<div>About</div>} />
+        <Route path="/forum" element={<ForumView />} />
+        <Route path="/about" element={<AboutView />} />
       </Routes>
     </div>
   )

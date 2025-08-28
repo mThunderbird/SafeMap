@@ -5,7 +5,7 @@ import "leaflet-control-geocoder";
 
 import "leaflet-control-geocoder/dist/Control.Geocoder.css";
 
-export default function MapSearch({ setSelectedLocation }) {
+export default function MapSearch({ mapViewState, setMapViewState }) {
 
     const map = useMap();
 
@@ -16,8 +16,7 @@ export default function MapSearch({ setSelectedLocation }) {
         position: 'topleft'
         })
         .on('markgeocode', function(e) {
-            
-            setSelectedLocation(e.geocode.center);
+
             map.setView(e.geocode.center, 16);
         });
 

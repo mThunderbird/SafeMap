@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import useReports from '../util/useReports';
 import '../styles/mapView.css';
 import LocationMarker from '../util/LocationMarker'
-import UserLocation from '../util/UserLocation';
+import UserLocation from '../util/UserLocation.jsx';
 import MapSearch from '../util/MapSearch';
 import L from 'leaflet';
 
@@ -31,22 +31,17 @@ export default function Map({ mapViewState, setMapViewState }) {
                 attribution='&copy; <a href="https://carto.com/">CARTO</a> | © OpenStreetMap contributors'>
             </TileLayer>
 
-            <MapSearch setSelectedLocation={mapViewState.setSelectedLocation} />
+            <MapSearch mapViewState={mapViewState} setMapViewState={setMapViewState} />
             <UserLocation mapViewState={mapViewState} setMapViewState={setMapViewState} />
             <LocationMarker onSelect={(location) => {
                 if(mapViewState.isSelectingOnMap)
-                    setMapViewState({ ...mapViewState, selectedLocation: location })
+                    setMapViewState(prevState => ({ ...prevState, selectedLocation: location }))
             }} />
 
             {mapViewState.selectedLocation && (
                 <Marker id="selectedLocationMarker" position={mapViewState.selectedLocation}>
                     <Popup>
-                        <span id="selectedLocationMarkerSpan" style={{ cursor: "pointer", color: "#2c84cb" }} 
-                        onClick={(e) => {
-                            setMapViewState({ ...mapViewState, selectedLocation: null });
-                            e.stopPropagation();
-                            console.log("Marker removed");
-                        }}>Click here to remove</span>
+                        Selected location 
                     </Popup>
                 </Marker>
             )}

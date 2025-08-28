@@ -14,20 +14,34 @@ export default function UserLocation({ mapViewState, setMapViewState }) {
             position: 'bottomleft',
             cacheLocation: true,
             initialZoomLevel: 13,
+            keepCurrentZoomLevel: true,
+            drawCircle: true,
+            drawMarker: true,
+            flyTo: false,
+            setView: false,
             locateOptions: {
                 enableHighAccuracy: true
             },
             clickBehavior: {
-                inView: 'stop',
+                inView: 'setView',
                 outOfView: 'setView',
                 inViewNotFollowing: 'setView'
             }
         });
 
+        locateControl._onZoomEnd = function () {
+              if (this._event && this._event.getBounds) {
+                this._map.fitBounds(this._event.getBounds());
+              }
+        }
+
         locateControl.addTo(map);
 
         map.on('locationfound', (e) => {
-            setMapViewState({ ...mapViewState, currentLocation: e.latlng });
+            if(e.latlng !== null) {
+                setMapViewState(prevState => ({ ...prevState, currentLocation: e.latlng }));
+                console.log("Updating user location, old - ", mapViewState);
+            }
         });
 
         locateControl.start();

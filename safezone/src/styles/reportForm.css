@@ -14,7 +14,9 @@
     width: 100%;
     height: 5vh;
 
+    margin: 10px 0;
     display: flex;
+    gap: 10px;
 }
 
 .location-selection div {
@@ -22,7 +24,6 @@
     text-align: center;
     padding: 5px;
     flex: 1;
-    margin: 0 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #f9f9f9;
@@ -41,6 +42,25 @@
   box-sizing: border-box;
 }
 
+.timeDateSelection {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  margin: 10px 0;
+}
+
+.timeDateSelection label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.timeDateSelection input[type="datetime-local"] {
+  height: auto;
+  padding: 8px;
+}
+
 .report-form select {
   width: 100%;
   padding: 10px;
@@ -53,13 +73,15 @@
 
 .report-form button {
   padding: 10px 15px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: #67b1ff86;
+  color: #000;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+
+  margin-top: 30px;
 }
 
 .report-form button:hover {
-  background-color: #0056b3;
+  background-color: #5893d386;
 }

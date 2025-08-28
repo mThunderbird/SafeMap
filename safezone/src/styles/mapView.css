@@ -6,6 +6,43 @@
   gap: 5vh;
 }
 
+.welcome-section {
+  background-color: #fff;
+  text-align: center;
+  /* font-size: 1.2em; */
+
+}
+
+.welcome-section h2 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.welcome-section p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.welcome-section p:last-of-type {
+  margin-bottom: 0;
+}
+
+.welcome-section strong {
+  color: #333;
+}
+
+.welcome-section .disclaimer {
+  font-size: 14px;
+  color: #888;
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+  margin-top: 15px;
+  text-align: center;
+}
+
 .report-button {
   font-size: 2vh;
 

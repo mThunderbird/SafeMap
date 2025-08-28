@@ -1,0 +1,144 @@
+.forum-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.forum-header {
+  background-color: #fff;
+  padding: 20px;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.forum-header h1 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.forum-header p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.forum-header span {
+  color: #67b1ff;
+  font-weight: bold;
+}
+
+.comment-input {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin-bottom: 20px;
+
+  display: flex;
+ flex-direction: column;
+ align-content: center;
+}
+
+.comment-input textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.comment-input textarea:focus {
+  outline: none;
+  border-color: #67b1ff;
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(103, 177, 255, 0.2);
+}
+
+.comment-input textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.comment-input button {
+  margin: auto auto;
+  margin-top: 15px;
+  padding: 12px 24px;
+  background-color: #67b1ff86;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  min-width: 100px;
+}
+
+.comment-input button:hover {
+  background-color: #5893d386;
+}
+
+.comments-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.comment-box {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border-left: 4px solid #67b1ff86;
+}
+
+.comment-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid #ddd;
+}
+
+.comment-icon::before {
+  content: "👤";
+  font-size: 18px;
+  color: #666;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-text {
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.comments-empty {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
