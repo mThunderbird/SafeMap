@@ -17,11 +17,9 @@ It enables users to share and view safety reports anonymously, browse an inciden
 
 ## 📸 Screenshots
 
-- Map view with incident reports – `./docs/map.png`  
-- Forum with anonymous posts – `./docs/forum.png`  
-- About page – `./docs/about.png`  
-
-*(Add images after running the app and capturing screenshots)*
+- Map view with incident reports – [./docs/map.png] 
+- Forum with anonymous posts – [./docs/forum.png] 
+- About page – [./docs/about.png]
 
 ---
 
