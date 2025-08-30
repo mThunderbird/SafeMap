@@ -17,9 +17,9 @@ It enables users to share and view safety reports anonymously, browse an inciden
 
 ## 📸 Screenshots
 
-- Map view with incident reports – [./docs/map.png] 
-- Forum with anonymous posts – [./docs/forum.png] 
-- About page – [./docs/about.png]
+- Map view with incident reports – ![Map with report form](./docs/map.png) 
+- Forum with anonymous posts – ![Forum with posts and Navigation bar](./docs/forum.png)
+- About page – ![About page sneak peak](./docs/about.png)
 
 ---
 
