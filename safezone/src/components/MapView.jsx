@@ -27,7 +27,7 @@ export default function MapView() {
                     respectful reporting to help keep our community safe.
                 </p>
                 <p className="disclaimer">
-                    <em>Development Notice: Reports marked "fake report" are test data used to display the app's functionality.</em>
+                    <em>Development Notice: Reports with description "fake report" are test data used to display the app's functionality.</em>
                 </p>
             </div>
 

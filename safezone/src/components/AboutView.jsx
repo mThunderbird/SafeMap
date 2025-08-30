@@ -17,9 +17,9 @@ export default function AboutView() {
                 <section className="about-section">
                     <h2>Our Mission</h2>
                     <p>
-                        SafeZone is a community-driven platform designed to enhance personal safety through 
-                        incident reporting and awareness. By connecting people with safety 
-                        information, we aim to help people and ensure they make an informed decision.
+                        SafeZone is a community-powered platform that helps people stay informed and feel safer in their surroundings. 
+                        By sharing and viewing local safety reports, everyone can make more confident decisions about where they live, 
+                        work, and travel
                     </p>
                 </section>
 
@@ -45,62 +45,12 @@ export default function AboutView() {
                 </section>
 
                 <section className="about-section">
-                    <h2>Technology Stack</h2>
-                    <p>
-                        SafeZone is built with modern web technologies to ensure reliability, performance, and scalability:
-                    </p>
-                    <div className="tech-stack">
-                        <div className="tech-category">
-                            <h4>Frontend</h4>
-                            <ul>
-                                <li>React.js</li>
-                                <li>Leaflet & React-Leaflet for mapping</li>
-                                <li>CSS</li>
-                                <li>Responsive design principles</li>
-                            </ul>
-                        </div>
-                        <div className="tech-category">
-                            <h4>Backend & Database</h4>
-                            <ul>
-                                <li>Firebase Firestore for real-time data</li>
-                                <li>Cloud-based hosting and deployment</li>
-                                <li>Geospatial data handling</li>
-                            </ul>
-                        </div>
-                        <div className="tech-category">
-                            <h4>Development</h4>
-                            <ul>
-                                <li>Vite for fast development and building</li>
-                                <li>Git version control</li>
-                                <li>Component-based architecture</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <section className="about-section">
                     <h2>Privacy & Safety</h2>
                     <p>
                         Your privacy and safety are our top priorities. All reports are anonymous by design, 
                         and no personal information is stored or tracked. The platform encourages responsible 
                         use and community-driven moderation to maintain a helpful and respectful environment.
                     </p>
-                </section>
-
-                <section className="about-section">
-                    <h2>Development Showcase</h2>
-                    <p>
-                        This project demonstrates full-stack development capabilities, including:
-                    </p>
-                    <ul className="showcase-list">
-                        <li><strong>Real-time data management</strong> with Firebase integration</li>
-                        <li><strong>Interactive mapping</strong> with custom markers</li>
-                        <li><strong>Responsive UI/UX design</strong> with consistent styling</li>
-                        <li><strong>Form handling and validation</strong> with error management</li>
-                        <li><strong>State management</strong> across multiple components</li>
-                        <li><strong>Geolocation services</strong> and timezone handling</li>
-                        <li><strong>Anonymous user interactions</strong> and community features</li>
-                    </ul>
                 </section>
 
                 <section className="about-section">
@@ -113,7 +63,8 @@ export default function AboutView() {
 
             <div className="about-footer">
                 <p>
-                    Built with passion for real-life problem solving.
+                    Built with passion for real-life problem solving. <br/>
+                    Created by <a color='gray' target='_blank' href="https://github.com/mThunderbird/SafeZone">D. Ivanov</a>
                 </p>
             </div>
         </div>

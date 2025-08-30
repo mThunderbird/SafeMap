@@ -7,6 +7,8 @@ import "../styles/reportForm.css";
 export default function ReportForm({mapViewState, setMapViewState}) {
 
     // Function to get current local datetime in format needed for datetime-local input
+    // For some reason Date() gives me GMT+0 even though in the browser I get my local time
+    // These shenanigans here fix that
     const getCurrentLocalDateTime = () => {
         const now = new Date();
         const localTime = new Date(now.getTime() - (now.getTimezoneOffset() * 60000));
