@@ -2,6 +2,8 @@
 
 SafeZone is a community-powered safety awareness platform built with React and Firebase.  
 It enables users to share and view safety reports anonymously, browse an incident map, and connect through a simple community forum — all with privacy by design.
+Deployed via Docker on Heroku
+Visit here: [SafeMap](https://safemap-8e8ffc338a58.herokuapp.com/)
 
 ---
 
@@ -12,15 +14,6 @@ It enables users to share and view safety reports anonymously, browse an inciden
 - 💬 **Minimal Forum** – Post and read short messages without usernames or accounts.  
 - 📱 **Responsive Design** – Works on both mobile and desktop.  
 - 🔒 **Privacy First** – No personal data stored or tracked.  
-
----
-
-## 📸 Screenshots
-
-- Map view with incident reports – ![Map with report form](./docs/map.png) 
-- Forum with anonymous posts – ![Forum with posts and Navigation bar](./docs/forum.png)
-- About page – ![About page sneak peak](./docs/about.png)
-
 ---
 
 ## ⚙️ Tech Stack
@@ -36,7 +29,7 @@ It enables users to share and view safety reports anonymously, browse an inciden
 **Development:**  
 - Git version control  
 - Component-based architecture  
-
+- Docker for deployment
 ---
 
 ## 🚀 Future Possibilites
@@ -46,8 +39,12 @@ It enables users to share and view safety reports anonymously, browse an inciden
 - Integration with local emergency services  
 
 ---
+## 📸 Screenshots
 
-## 💡 About the Project
+- Map view with incident reports – ![Map with report form](./docs/map.png) 
+- Forum with anonymous posts – ![Forum with posts and Navigation bar](./docs/forum.png)
+- About page – ![About page sneak peak](./docs/about.png)
+
 
 SafeZone was built to demonstrate full-stack development skills while solving a real-world problem.  
 It highlights:
