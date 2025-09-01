@@ -1,8 +1,11 @@
 # 🛡️ SafeZone
 
-SafeZone is a community-powered safety awareness platform built with React and Firebase.  
+SafeZone is a community-powered safety awareness platform built with React and Firebase.
+
 It enables users to share and view safety reports anonymously, browse an incident map, and connect through a simple community forum — all with privacy by design.
-Deployed via Docker on Heroku
+
+Deployed via Docker on Heroku.
+
 Visit here: [SafeMap](https://safemap-8e8ffc338a58.herokuapp.com/)
 
 ---
