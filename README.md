@@ -1,6 +1,6 @@
-# 🛡️ SafeZone
+# 🛡️ SafeMap
 
-SafeZone is a community-powered safety awareness platform built with React and Firebase.
+SafeMap is a community-powered safety awareness platform built with React and Firebase.
 
 It enables users to share and view safety reports anonymously, browse an incident map, and connect through a simple community forum — all with privacy by design.
 
@@ -49,7 +49,7 @@ Visit here: [SafeMap](https://safemap-8e8ffc338a58.herokuapp.com/)
 - About page – ![About page sneak peak](./docs/about.png)
 
 
-SafeZone was built to demonstrate full-stack development skills while solving a real-world problem.  
+SafeMap was built to demonstrate full-stack development skills while solving a real-world problem.  
 It highlights:
 - Real-time data handling with Firebase  
 - Interactive mapping with custom markers  
