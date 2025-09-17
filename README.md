@@ -10,6 +10,7 @@ It demonstrates full-stack and deployment experience
 
 Visit here: [SafeMap](https://safemap-8e8ffc338a58.herokuapp.com/)
 
+---
 ## Tech Stack
 
 **Frontend:**  
@@ -24,7 +25,7 @@ Visit here: [SafeMap](https://safemap-8e8ffc338a58.herokuapp.com/)
 - Git version control  
 - Component-based architecture  
 - Docker for deployment
-
+---
 ## Features
 
 - **Interactive Map** – View safety reports in real time relevant to your location, powered by Leaflet.  
@@ -33,12 +34,14 @@ Visit here: [SafeMap](https://safemap-8e8ffc338a58.herokuapp.com/)
 - **Responsive Design** – Works on both mobile and desktop.  
 - **Privacy First** – No personal data stored or tracked.  
 
+---
 ## Future Possibilities
 
 - Anti-spam & anti-bot features  
 - Analytics and safety heatmaps  
 - Integration with local emergency services
 
+---
 ## Screenshots
 
 | Map with reports | Forum with posts | About page |
